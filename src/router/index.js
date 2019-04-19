@@ -12,7 +12,7 @@ import chartsRouter from './modules/charts'
 import tableRouter from './modules/table'
 import treeTableRouter from './modules/tree-table'
 import nestedRouter from './modules/nested'
-
+import joha from './modules/joha'
 /** note: sub-menu only appear when children.length>=1
  *  detail see  https://panjiachen.github.io/vue-element-admin-site/guide/essentials/router-and-nav.html
  **/
@@ -77,32 +77,8 @@ export const constantRoutes = [
         meta: { title: 'dashboard', icon: 'dashboard', noCache: true, affix: true }
       }
     ]
-  },
-  {
-    path: '/documentation',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/documentation/index'),
-        name: 'Documentation',
-        meta: { title: 'documentation', icon: 'documentation', affix: true }
-      }
-    ]
-  },
-  {
-    path: '/guide',
-    component: Layout,
-    redirect: '/guide/index',
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/guide/index'),
-        name: 'Guide',
-        meta: { title: 'guide', icon: 'guide', noCache: true }
-      }
-    ]
   }
+
 ]
 
 export default new Router({
@@ -153,25 +129,13 @@ export const asyncRoutes = [
     ]
   },
 
-  {
-    path: '/icon',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/svg-icons/index'),
-        name: 'Icons',
-        meta: { title: 'icons', icon: 'icon', noCache: true }
-      }
-    ]
-  },
-
   /** When your routing table is too long, you can split it into small modules**/
   componentsRouter,
   chartsRouter,
   nestedRouter,
   tableRouter,
   treeTableRouter,
+  joha,
 
   {
     path: '/example',
@@ -294,7 +258,7 @@ export const asyncRoutes = [
     ]
   },
 
-  {
+  /* {
     path: '/zip',
     component: Layout,
     redirect: '/zip/download',
@@ -308,7 +272,7 @@ export const asyncRoutes = [
         meta: { title: 'exportZip' }
       }
     ]
-  },
+  },*/
 
   {
     path: '/pdf',
@@ -339,20 +303,6 @@ export const asyncRoutes = [
         component: () => import('@/views/theme/index'),
         name: 'Theme',
         meta: { title: 'theme', icon: 'theme' }
-      }
-    ]
-  },
-
-  {
-    path: '/clipboard',
-    component: Layout,
-    redirect: 'noredirect',
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/clipboard/index'),
-        name: 'ClipboardDemo',
-        meta: { title: 'clipboardDemo', icon: 'clipboard' }
       }
     ]
   },

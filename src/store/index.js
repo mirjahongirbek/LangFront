@@ -6,8 +6,13 @@ import permission from './modules/permission'
 import tagsView from './modules/tagsView'
 import user from './modules/user'
 import getters from './getters'
-
+import axios from 'axios'
 Vue.use(Vuex)
+
+const http = axios.create({
+  baseURL: 'http://localhost:9001/api'
+
+})
 
 const store = new Vuex.Store({
   modules: {
@@ -17,7 +22,11 @@ const store = new Vuex.Store({
     tagsView,
     user
   },
-  getters
+  getters,
+  state: {
+    http,
+    langs: []
+  }
 })
 
 export default store
